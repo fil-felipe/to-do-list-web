@@ -8,7 +8,7 @@ function App() {
   const [data, refreshData] = useState([]);
   
   useEffect( () => {
-    axios.get("/read-task").then((response) => {refreshData(response.data)})
+    axios.get("https://to-do-list-app.filip-adamek.pl/read-task").then((response) => {refreshData(response.data)})
     // fetch("/read-task")
       // .then((res) => res.json())
       // .then((data) => refreshData(data.message));
