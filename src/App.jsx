@@ -41,7 +41,7 @@ function App() {
 
   return (
     <div>
-      <p>Test content</p>
+      <h1>Twoja lista zakupów</h1>
       <ul>
         {data.map((element) => {
           return (
