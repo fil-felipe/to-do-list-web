@@ -22,7 +22,7 @@ function App() {
     try {
       axios.post("https://to-do-list-app.filip-adamek.pl/add-task", newTask)
         .then(NotificationManager.success("Success message"))
-        .then(axios.get("https://to-do-list-app.filip-adamek.pl/add-task").then((response) => {refreshData(response.data)}))
+        .then(axios.get("https://to-do-list-app.filip-adamek.pl/read-task").then((response) => {refreshData(response.data)}))
     } catch {
       NotificationManager.console.error("Ups something went wrong")
     }
@@ -32,7 +32,7 @@ function App() {
     event.preventDefault();
     try {
       axios.post("https://to-do-list-app.filip-adamek.pl/delete-task", {id: key})
-        .then(axios.get("https://to-do-list-app.filip-adamek.pl/add-task").then((response) => {refreshData(response.data)}))
+        .then(axios.get("https://to-do-list-app.filip-adamek.pl/read-task").then((response) => {refreshData(response.data)}))
         .then(key? event.target.style.removeProperty('text-decoration'): event.target.style.setProperty('text-decoration', 'line-through'))
     } catch {
       NotificationManager.console.error("Ups something went wrong")
