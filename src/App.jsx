@@ -57,7 +57,7 @@ function App() {
       </ul>
       <form onSubmit={handleSubmit}>
           <input type="text" name="newTask" />
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Dodaj" />
       </form>
     </div>
   );
