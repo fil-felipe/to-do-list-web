@@ -2,6 +2,7 @@
   "name": "to-do-list",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://to-do-list-app.filip-adamek.pl/",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
@@ -42,6 +43,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "proxy": "https://to-do-list-app-zsb4qeella-ew.a.run.app"
+  }
 }
