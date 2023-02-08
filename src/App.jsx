@@ -34,9 +34,9 @@ function App() {
     try {
       axios.post("https://to-do-list-app.filip-adamek.pl/add-task", newTask)
         .then((response) => {
-          console.log(Object.is(response.data, actualData))
+          // console.log(Object.is(response.data, actualData))
           refreshData([...response.data]);
-          console.log(response.data);
+          // console.log(response.data);
         })
     } catch {
       NotificationManager.console.error("Ups something went wrong")
@@ -54,7 +54,7 @@ function App() {
               setDeleteStatus(newElement.content.deleted)
               } 
             });
-          console.log(actualDeleted);
+          // console.log(actualDeleted);
           actualDeleted? event.target.style.removeProperty('text-decoration',"none"): event.target.style.setProperty('text-decoration', 'line-through');
         })
     } catch {
@@ -66,7 +66,7 @@ function App() {
     event.preventDefault();
     axios.delete("https://to-do-list-app.filip-adamek.pl/delete-tasks",{})
     .then(response => {
-      console.log(response.data);
+      // console.log(response.data);
       refreshData(response.data);
     });
   }
