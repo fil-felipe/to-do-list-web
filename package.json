@@ -2,7 +2,7 @@
   "name": "to-do-list",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://to-do-list-app.filip-adamek.pl/",
+  "proxy": "https://to-do-list-app.filip-adamek.pl",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
