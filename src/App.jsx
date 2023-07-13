@@ -37,9 +37,9 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-    <Typography>
+    <Typography component="span">
     <div>
-      <h1>Twoja lista zakupów</h1>
+      <div>Twoja lista zakupów</div>
       {/* <ToDoList /> */}
       <Routes>
         <Route path="/" element={<HomePage />} />
