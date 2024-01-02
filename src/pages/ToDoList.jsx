@@ -5,6 +5,8 @@ import {NotificationContainer, NotificationManager} from 'react-notifications';
 import { useParams } from 'react-router-dom';
 
 function ToDoList() {
+  const appDomain = "https://to-do-list-app-zsb4qeella-ew.a.run.app"
+  
   const { listName } = useParams();
   const [actualData, refreshData] = useState([]);
   const [actualDeleted, setDeleteStatus] = useState(false);
@@ -14,7 +16,7 @@ function ToDoList() {
   
 
   const loadData = async () => {
-    await axios.get("https://to-do-list-app.filip-adamek.pl/read-task/"+listName)
+    await axios.get(appDomain+"/read-task/"+listName)
     .then(response => {
       refreshData(response.data);
     })
@@ -33,7 +35,7 @@ function ToDoList() {
     event.preventDefault();
     setNewTask("");
     try {
-      axios.post("https://to-do-list-app.filip-adamek.pl/add-task/"+listName, newTask)
+      axios.post(appDomain+"/add-task/"+listName, newTask)
         .then((response) => {
           // console.log(Object.is(response.data, actualData))
           refreshData([...response.data]);
@@ -47,7 +49,7 @@ function ToDoList() {
   function handleCLick(event, element) {
     event.preventDefault();
     try {
-      axios.post("https://to-do-list-app.filip-adamek.pl/delete-task/"+listName, {id: element.id})
+      axios.post(appDomain+"/delete-task/"+listName, {id: element.id})
         .then((response) => {
           refreshData(response.data);
           response.data.forEach(newElement =>{
@@ -65,7 +67,7 @@ function ToDoList() {
 
   function deleteButton(event) {
     event.preventDefault();
-    axios.delete("https://to-do-list-app.filip-adamek.pl/delete-tasks/"+listName,{})
+    axios.delete(appDomain+"/delete-tasks/"+listName,{})
     .then((response) => {
       // console.log(response.data);
     //   refreshData(response.data);
