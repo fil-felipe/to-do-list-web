@@ -17,6 +17,7 @@ import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 
 function HomePage(props) {
+    const appDomain = "https://to-do-list-app-zsb4qeella-ew.a.run.app"
 
     const { promiseInProgress } = usePromiseTracker();
     const [actualData, refreshData] = useState([]);
@@ -27,7 +28,7 @@ function HomePage(props) {
     const userName = "default_user"
 
     const loadData = async () => {
-        await axios.get("https://to-do-list-app.filip-adamek.pl/user/"+userName)
+        await axios.get(appDomain+"/user/"+userName)
         .then(response => {
           refreshData(response.data.avilable_lists);
         })
@@ -42,12 +43,12 @@ function HomePage(props) {
       const newListObject = {
         collection: event.target.elements.newTask.value
       }
-      // axios.post("https://to-do-list-app.filip-adamek.pl/create-collection/"+userName, newListObject);
+      // axios.post(appDomain+"/create-collection/"+userName, newListObject);
 
         // event.preventDefault();
         setNewList("");
         try {
-          axios.post("https://to-do-list-app.filip-adamek.pl/create-collection/"+userName, newListObject)
+          axios.post(appDomain+"/create-collection/"+userName, newListObject)
             .then((response) => {
               refreshData(response.data.avilable_lists);
               // newListPopup();
